@@ -1,3 +1,4 @@
+title: Spotify - Data explocation and Predictions  
 
 ## SUMMARY PAPER 
 ##  Introduction
