@@ -54,6 +54,8 @@ influence plot and also feature P_Values to modify the model which possessed
 an R-squared of 0.637 which suggested only moderate explanation of
 variability. Looking at the relationships showed in scatter plots, we felt the model
 showed an acceptable level relationship considering the variability in features.
+
+
 ![image](https://user-images.githubusercontent.com/73985225/131623740-08ad5ee1-0467-4745-bb7f-edd9424f464e.png)
 
 ### Random forest
@@ -86,6 +88,11 @@ While ‘English-speaking and Nordic countries’
 appeared to favour less positive music based on its
 lower valence compared to the global mean.
 a Yeo-Johnson power transformation
+
+![image](https://user-images.githubusercontent.com/73985225/131623991-75649786-63ce-475b-a302-cd943c7140f0.png)
+![image](https://user-images.githubusercontent.com/73985225/131623998-b6462a15-bd06-40d8-b15c-20fa25f2cee7.png)
+![image](https://user-images.githubusercontent.com/73985225/131624007-b70be6fc-89d0-4ed1-b2e4-7e970fef8adc.png)
+
 
 ##  Conclusion
 Although this dataset didn’t allow us to predict popularity based on key musical indicators through OLS, it did prove its
