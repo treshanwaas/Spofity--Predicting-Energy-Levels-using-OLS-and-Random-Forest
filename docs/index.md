@@ -30,3 +30,70 @@ sound more positive (e.g. happy, cheerful, euphoric), while tracks with low vale
 depressed, angry)
 10. Tempo - Overall estimated paces of the song measured in BPM (beats per minute)
 11. Duration_min - The song length in minutes
+
+Through visual inspection of the bevy of musical features available compared to the engineered popularity score we
+were unable to draw meaningful correlations in the data and were ultimately unsuccessful in generating a predictive
+model for this variable based on these factors. The only factors that appeared to have a clear relationship with the
+popularity score were metrics that tracked the length of time that each song was on the top 200 or top 50 list of their
+respective country. These were considered meaningless correlations as the popularity scores were generated from
+these variables by the dataset creators. We used a combination of a scatter matrix and Spearman’s correlation data to
+come to these conclusions.
+
+![image](https://user-images.githubusercontent.com/73985225/131623609-eed0ab3e-e080-48c4-8b12-0ef1749772cf.png)
+![image](https://user-images.githubusercontent.com/73985225/131623624-394499e7-28ff-41d8-9ecb-8a78845e6fe2.png)
+
+##  Data analysis
+Though there were no visible features to predict popularity we noticed a clear relationship between the energy level of
+the songs in the database and their respective loudness level. As such, we decided to attempt predicting the variability
+in energy level as a function of loudness level. The resultant model obtained was described by loudness and the genre
+type.
+
+### OLS
+The initial model showed a weak R-squared of 0.545. However, we used the
+influence plot and also feature P_Values to modify the model which possessed
+an R-squared of 0.637 which suggested only moderate explanation of
+variability. Looking at the relationships showed in scatter plots, we felt the model
+showed an acceptable level relationship considering the variability in features.
+![image](https://user-images.githubusercontent.com/73985225/131623740-08ad5ee1-0467-4745-bb7f-edd9424f464e.png)
+
+### Random forest
+The random forest model accuracy score came to 0.589. This was expected
+considering the weak relationships in features. Since it was a continuous
+prediction we used the R2_score function to predict the accuracy.
+
+## Hypothesis testing
+Along with the model development, we conducted some hypothesis testing on some of these key musical features
+between different ethno-linguistic regions and the global average to get a sense of variability in musical taste globally
+based on differing geographic regions.
+Plenty of these factors had non-normal/skewed
+distributions in their data and possessed negative
+values in certain cases. As such, a Yeo-Johnson
+power transformation was employed to conduct
+hypothesis testing (z-testing since all conditions
+were met following transformation) on these
+distributions as opposed to Box-Cox due to its
+added ability to normalize negative data.
+From this analysis, danceability is significantly
+different in ‘Southern Europe and Portuguese
+heritage’ and ‘English-speaking and Nordic
+countries’ compared to the global average.
+Valence is significantly different in English
+speaking and Nordic countries. The group of
+‘Southern Europe and Portuguese heritage’ and
+‘English-speaking and Nordic countries’ appeared to
+favour danceability less than the global average.
+While ‘English-speaking and Nordic countries’
+appeared to favour less positive music based on its
+lower valence compared to the global mean.
+a Yeo-Johnson power transformation
+
+##  Conclusion
+Although this dataset didn’t allow us to predict popularity based on key musical indicators through OLS, it did prove its
+value to identify a trend between song energy. We were able to predict energy levels with loudness and the song genre.
+We determined that danceability is significantly different in ‘Southern Europe and Portuguese heritage’ and ‘Englishspeaking
+and Nordic countries’ compared to the global average. Valence is significantly different in English speaking
+and Nordic countries compared to the global average as well. Using more complex methods involving machine learning
+it may be feasible to utilize this information to generate models to predict popularity. Additionally, since music is art,
+there are so many factors, globally and socially, on a micro or a macro-scale, that could influence musical preference
+of different demographics in the same country. Such information was not available for this analysis.
+
